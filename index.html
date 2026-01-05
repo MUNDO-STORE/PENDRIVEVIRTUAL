@@ -111,7 +111,6 @@
             margin: 0 auto 15px;
         }
         
-        /* Nova frase adicionada */
         .download-info {
             font-size: 1.2rem;
             color: #ffd700;
@@ -155,7 +154,6 @@
             position: relative;
         }
         
-        /* IMAGEM COM BORDAS ANIMADAS PROFISSIONAL */
         .image-container {
             position: relative;
             display: inline-block;
@@ -180,7 +178,8 @@
             position: relative;
             z-index: 2;
             border: 5px solid #0f0f1e;
-            height: 350px;
+            height: 350px; /* Altura mantida */
+            width: 350px;  /* Adicionado para manter quadrado como a imagem anexa */
             object-fit: cover;
         }
         
@@ -224,7 +223,6 @@
             font-size: 1.2rem;
         }
         
-        /* Destaque especial para o item "Sem atualizações!" */
         .no-updates {
             color: #ff6b6b;
             font-weight: bold;
@@ -246,7 +244,6 @@
             75% { transform: translateX(5px); }
         }
         
-        /* Botão de compra */
         .buy-button {
             display: inline-block;
             background: linear-gradient(45deg, #ff6b6b, #ff8e53);
@@ -336,7 +333,7 @@
             margin-bottom: 10px;
         }
         
-        /* NOTIFICAÇÕES FLUTUANTES PROFISSIONAL */
+        /* NOTIFICAÇÕES */
         .notifications-section {
             padding: 50px 0;
             position: relative;
@@ -349,7 +346,6 @@
             text-align: center;
         }
         
-        /* Container de notificações flutuante */
         .notification-container {
             max-width: 600px;
             margin: 0 auto;
@@ -380,11 +376,6 @@
             animation: fadeIn 0.5s;
             transition: all 0.3s;
             border-left: 4px solid #ff6b6b;
-        }
-        
-        .notification:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateX(5px);
         }
         
         .notification img {
@@ -445,11 +436,6 @@
             transition: all 0.3s;
         }
         
-        .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
         .testimonial-header {
             display: flex;
             align-items: center;
@@ -481,7 +467,6 @@
             line-height: 1.5;
         }
         
-        /* Footer */
         footer {
             text-align: center;
             padding: 30px 0;
@@ -491,35 +476,10 @@
             font-size: 0.9rem;
         }
         
-        /* Responsividade */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .buy-button {
-                font-size: 1.3rem;
-                padding: 15px 30px;
-            }
-            
-            .notification-container {
-                margin: 0 15px;
-            }
-            
-            .download-info {
-                font-size: 1rem;
-                padding: 8px 15px;
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .image-container img {
-                height: 280px;
-            }
+            h1 { font-size: 2.2rem; }
+            .main-content { flex-direction: column; }
+            .image-container img { height: 280px; width: 280px; }
         }
         
         @keyframes fadeIn {
@@ -527,7 +487,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Timer para redirecionamento */
         .redirect-notice {
             position: fixed;
             bottom: 20px;
@@ -563,7 +522,6 @@
             cursor: pointer;
         }
         
-        /* Estilo especial para a pasta "E MUITO MAIS!" */
         .genre-more {
             background: rgba(255, 107, 107, 0.1);
             border: 2px dashed #ff6b6b;
@@ -574,17 +532,6 @@
             animation: pulseIcon 2s infinite;
         }
         
-        @keyframes pulseIcon {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .genre-more h3 {
-            color: #ffd700;
-        }
-        
-        /* Estilo para contador de notificações */
         .notification-header {
             display: flex;
             justify-content: space-between;
@@ -599,46 +546,31 @@
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
         }
         
-        /* Barra de rolagem personalizada */
         .notification-container::-webkit-scrollbar {
             width: 8px;
-        }
-        
-        .notification-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
         }
         
         .notification-container::-webkit-scrollbar-thumb {
             background: linear-gradient(45deg, #ff6b6b, #ff8e53);
             border-radius: 10px;
         }
-        
-        .notification-container::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #ff8e53, #ff6b6b);
-        }
     </style>
 </head>
 <body>
-    <!-- Fundo animado com notas musicais -->
     <div class="background-animation" id="backgroundAnimation"></div>
     
-    <!-- Notificação de redirecionamento (40 SEGUNDOS) -->
     <div class="redirect-notice" id="redirectNotice">
         <div>OFERTA ESPECIAL! Redirecionando em <span class="countdown" id="countdown">40</span> segundos...</div>
         <div class="cancel-redirect" id="cancelRedirect">Clique aqui para cancelar o redirecionamento</div>
     </div>
     
     <div class="container">
-        <!-- Header -->
         <header>
             <h1>ATUALIZE SEU <span class="highlight">PENDRIVE 2026</span></h1>
             <p class="subtitle">Mais de 25 mil músicas MP3 sem vinhetas | Mais de 33 ritmos diferentes | Na compra ganhe videoclipes</p>
             
-            <!-- Nova frase adicionada -->
             <div class="download-info">
                 <i class="fas fa-download"></i>
                 <span><strong>BAIXE NO SEU COMPUTADOR OU CELULAR! (RECOMENDAMOS PELO PC)</strong></span>
@@ -647,16 +579,12 @@
             <div class="price">R$ 9,99</div>
         </header>
         
-        <!-- Conteúdo principal -->
         <section class="main-content">
             <div class="product-image">
-                <!-- Container com bordas animadas -->
                 <div class="image-container">
-                    <!-- IMAGEM HOSPEDADA NO GITHUB - pendrive.jpg -->
-                    <img src="https://raw.githubusercontent.com/MUNDO-STORE/PENDRIVEVIRTUAL/blob/main/PENDRIVE.jpg" 
+                    <img src="PENDRIVE.jpg" 
                          alt="Pendrive com músicas 2026" 
-                         id="pendriveImage"
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581327378411-1e3d8dcd4f8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'">
+                         id="pendriveImage">
                     <div class="pendrive-label">25.000 MÚSICAS</div>
                 </div>
             </div>
@@ -664,18 +592,18 @@
             <div class="product-info">
                 <h2>Leve a música para onde você for!</h2>
                 <p style="color: #4ecdc4; margin-bottom: 20px; font-size: 1.1rem;">
-                    <i class="fas fa-music"></i> <strong>MÚSICAS ATUALIZADAS 2026</strong> - As mais tocadas do momento!
+                    <i class="fas fa-music"></i> <strong>MÚSICAS ATUALIZADAS 2026</strong>
                 </p>
                 
                 <ul class="features">
-                    <li><strong>Mais de 25.000 músicas MP3</strong> de alta qualidade</li>
-                    <li><strong>Zero vinhetas</strong> - apenas a música pura</li>
-                    <li><strong>33 ritmos diferentes</strong> para todos os gostos</li>
-                    <li><strong>Videoclipes inclusos</strong> na compra</li>
-                    <li><strong>Organização por pastas</strong> por ritmos musicais</li>
+                    <li><strong>Mais de 25.000 músicas MP3</strong></li>
+                    <li><strong>Zero vinhetas</strong></li>
+                    <li><strong>33 ritmos diferentes</strong></li>
+                    <li><strong>Videoclipes inclusos</strong></li>
+                    <li><strong>Organização por pastas</strong></li>
                     <li><strong>Compatível com todos os dispositivos</strong></li>
-                    <li><strong>Entrega imediata</strong> após a confirmação</li>
-                    <li class="no-updates"><strong>Sem atualizações!</strong> - Conteúdo completo e definitivo</li>
+                    <li><strong>Entrega imediata</strong></li>
+                    <li class="no-updates"><strong>Sem atualizações!</strong> - Conteúdo Definitivo</li>
                 </ul>
                 
                 <a href="https://4br.me/IbyYKon" class="buy-button" id="buyButton">
@@ -684,43 +612,17 @@
             </div>
         </section>
         
-        <!-- Seção de ritmos musicais -->
         <section class="genres-section">
             <h2>RITMOS MUSICAIS INCLUSOS</h2>
-            <p class="subtitle">Pastas organizadas por ritmos para facilitar sua busca</p>
             <div class="genres-grid">
-                <div class="genre-folder">
-                    <i class="fas fa-folder-open"></i>
-                    <h3>Sertanejo</h3>
-                </div>
-                <div class="genre-folder">
-                    <i class="fas fa-folder-open"></i>
-                    <h3>Forró</h3>
-                </div>
-                <div class="genre-folder">
-                    <i class="fas fa-folder-open"></i>
-                    <h3>Funk</h3>
-                </div>
-                <div class="genre-folder">
-                    <i class="fas fa-folder-open"></i>
-                    <h3>Pagode</h3>
-                </div>
-                <div class="genre-folder">
-                    <i class="fas fa-folder-open"></i>
-                    <h3>MPB</h3>
-                </div>
-                <div class="genre-folder">
-                    <i class="fas fa-folder-open"></i>
-                    <h3>Rock</h3>
-                </div>
-                <div class="genre-folder">
-                    <i class="fas fa-folder-open"></i>
-                    <h3>Samba</h3>
-                </div>
-                <div class="genre-folder">
-                    <i class="fas fa-folder-open"></i>
-                    <h3>Axé</h3>
-                </div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Sertanejo</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Forró</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Funk</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Pagode</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>MPB</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Rock</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Samba</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Axé</h3></div>
                 <div class="genre-folder genre-more">
                     <i class="fas fa-plus-circle"></i>
                     <h3>E MUITO MAIS!</h3>
@@ -729,322 +631,73 @@
             </div>
         </section>
         
-        <!-- NOTIFICAÇÕES FLUTUANTES PROFISSIONAL -->
         <section class="notifications-section">
             <div class="notification-header">
                 <h2>NOTIFICAÇÕES DE COMPRAS</h2>
                 <div class="notification-counter" id="notificationCounter">5 compras recentes</div>
             </div>
-            <div class="notification-container" id="notificationContainer">
-                <!-- Notificações serão inseridas aqui via JavaScript -->
-            </div>
+            <div class="notification-container" id="notificationContainer"></div>
         </section>
         
-        <!-- Depoimentos -->
-        <section class="testimonials-section">
-            <h2>DEPOIMENTOS DE CLIENTES</h2>
-            <p class="subtitle">Veja o que estão falando nas redes sociais</p>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva">
-                        <div class="testimonial-info">
-                            <h4>Carlos Silva</h4>
-                            <p><i class="fab fa-facebook social-icon"></i> Facebook</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"Comprei há uma semana e já usei em várias festas. As músicas são de ótima qualidade e sem vinhetas. Valeu cada centavo!"</p>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Amanda Souza">
-                        <div class="testimonial-info">
-                            <h4>Amanda Souza</h4>
-                            <p><i class="fab fa-instagram social-icon"></i> Instagram</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"Adorei a organização por pastas! Fica muito fácil achar o que quero tocar. Já recomendei para todas minhas amigas."</p>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Ricardo Almeida">
-                        <div class="testimonial-info">
-                            <h4>Ricardo Almeida</h4>
-                            <p><i class="fab fa-facebook social-icon"></i> Facebook</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">"Perfeito para minha viagem de carro! Mais de 25 mil músicas e ainda veio com videoclipes. Compra mais que aprovada!"</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Footer -->
         <footer>
             <p>© 2026 - Atualize seu Pendrive. Todos os direitos reservados.</p>
         </footer>
     </div>
     
     <script>
-        // Criar notas musicais animadas no fundo
+        // Lógica de Notas Musicais
         const backgroundAnimation = document.getElementById('backgroundAnimation');
-        const notes = ['♩', '♪', '♫', '♬', '♭', '♮', '♯'];
-        
+        const notes = ['♩', '♪', '♫', '♬'];
         for (let i = 0; i < 20; i++) {
             const note = document.createElement('div');
             note.className = 'music-note';
             note.textContent = notes[Math.floor(Math.random() * notes.length)];
             note.style.left = Math.random() * 100 + 'vw';
             note.style.animationDelay = Math.random() * 20 + 's';
-            note.style.fontSize = (Math.random() * 20 + 15) + 'px';
             backgroundAnimation.appendChild(note);
         }
-        
-        // Notificações de compradores em tempo real
+
+        // Notificações Fictícias
         const notificationContainer = document.getElementById('notificationContainer');
         const notificationCounter = document.getElementById('notificationCounter');
-        const estados = ['SP', 'RJ', 'MG', 'RS', 'PR', 'SC', 'BA', 'PE', 'CE', 'DF'];
-        const nomesMasculinos = ['Carlos', 'João', 'Pedro', 'Lucas', 'Ricardo', 'Fernando', 'Roberto', 'Gustavo', 'Eduardo', 'Marcos'];
-        const nomesFemininos = ['Ana', 'Maria', 'Juliana', 'Patrícia', 'Camila', 'Fernanda', 'Amanda', 'Beatriz', 'Carolina', 'Larissa'];
-        
-        // Fotos masculinas e femininas
-        const fotosMasculinas = [
-            'https://randomuser.me/api/portraits/men/1.jpg',
-            'https://randomuser.me/api/portraits/men/2.jpg',
-            'https://randomuser.me/api/portraits/men/3.jpg',
-            'https://randomuser.me/api/portraits/men/4.jpg',
-            'https://randomuser.me/api/portraits/men/5.jpg',
-            'https://randomuser.me/api/portraits/men/6.jpg',
-            'https://randomuser.me/api/portraits/men/7.jpg',
-            'https://randomuser.me/api/portraits/men/8.jpg',
-            'https://randomuser.me/api/portraits/men/9.jpg',
-            'https://randomuser.me/api/portraits/men/10.jpg'
-        ];
-        
-        const fotosFemininas = [
-            'https://randomuser.me/api/portraits/women/1.jpg',
-            'https://randomuser.me/api/portraits/women/2.jpg',
-            'https://randomuser.me/api/portraits/women/3.jpg',
-            'https://randomuser.me/api/portraits/women/4.jpg',
-            'https://randomuser.me/api/portraits/women/5.jpg',
-            'https://randomuser.me/api/portraits/women/6.jpg',
-            'https://randomuser.me/api/portraits/women/7.jpg',
-            'https://randomuser.me/api/portraits/women/8.jpg',
-            'https://randomuser.me/api/portraits/women/9.jpg',
-            'https://randomuser.me/api/portraits/women/10.jpg'
-        ];
-        
-        // Array para controlar fotos já usadas (para não repetir)
-        let fotosUsadasMasculinas = [];
-        let fotosUsadasFemininas = [];
-        let totalNotificacoes = 0;
-        
+        const nomes = ['Carlos', 'Ana', 'Pedro', 'Juliana', 'Ricardo', 'Beatriz'];
+        let totalNotif = 0;
+
         function criarNotificacao() {
-            // Alternar entre nomes masculinos e femininos
-            let nome, foto, genero;
-            
-            if (Math.random() > 0.5) {
-                // Masculino
-                let indexNome = Math.floor(Math.random() * nomesMasculinos.length);
-                nome = nomesMasculinos[indexNome];
-                
-                // Encontrar uma foto masculina não usada
-                let indexFoto;
-                do {
-                    indexFoto = Math.floor(Math.random() * fotosMasculinas.length);
-                } while (fotosUsadasMasculinas.includes(indexFoto) && fotosUsadasMasculinas.length < fotosMasculinas.length);
-                
-                // Se todas as fotos foram usadas, reinicia
-                if (fotosUsadasMasculinas.length >= fotosMasculinas.length) {
-                    fotosUsadasMasculinas = [];
-                }
-                
-                fotosUsadasMasculinas.push(indexFoto);
-                foto = fotosMasculinas[indexFoto];
-                genero = 'masculino';
-            } else {
-                // Feminino
-                let indexNome = Math.floor(Math.random() * nomesFemininos.length);
-                nome = nomesFemininos[indexNome];
-                
-                // Encontrar uma foto feminina não usada
-                let indexFoto;
-                do {
-                    indexFoto = Math.floor(Math.random() * fotosFemininas.length);
-                } while (fotosUsadasFemininas.includes(indexFoto) && fotosUsadasFemininas.length < fotosFemininas.length);
-                
-                // Se todas as fotos foram usadas, reinicia
-                if (fotosUsadasFemininas.length >= fotosFemininas.length) {
-                    fotosUsadasFemininas = [];
-                }
-                
-                fotosUsadasFemininas.push(indexFoto);
-                foto = fotosFemininas[indexFoto];
-                genero = 'feminino';
-            }
-            
-            const estado = estados[Math.floor(Math.random() * estados.length)];
-            const hora = new Date();
-            const horaFormatada = hora.getHours().toString().padStart(2, '0') + ':' + 
-                                  hora.getMinutes().toString().padStart(2, '0') + ':' + 
-                                  hora.getSeconds().toString().padStart(2, '0');
-            
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.innerHTML = `
-                <img src="${foto}" alt="${nome}">
+            const nome = nomes[Math.floor(Math.random() * nomes.length)];
+            const foto = `https://randomuser.me/api/portraits/thumb/${Math.random() > 0.5 ? 'men' : 'women'}/${Math.floor(Math.random()*50)}.jpg`;
+            const div = document.createElement('div');
+            div.className = 'notification';
+            div.innerHTML = `
+                <img src="${foto}">
                 <div class="notification-content">
                     <div class="notification-name">${nome}</div>
-                    <div>Acabou de adquirir o pendrive musical 2026!</div>
-                    <div class="notification-time">
-                        <i class="fas fa-map-marker-alt"></i> ${estado} • <i class="far fa-clock"></i> ${horaFormatada}
-                    </div>
-                </div>
-            `;
-            
-            // Adicionar no topo do container
-            if (notificationContainer.firstChild) {
-                notificationContainer.insertBefore(notification, notificationContainer.firstChild);
-            } else {
-                notificationContainer.appendChild(notification);
-            }
-            
-            // Incrementar contador
-            totalNotificacoes++;
-            notificationCounter.textContent = `${totalNotificacoes} compras recentes`;
-            
-            // Limitar a 8 notificações visíveis
-            if (notificationContainer.children.length > 8) {
-                notificationContainer.removeChild(notificationContainer.lastChild);
-            }
-            
-            // Adicionar efeito de nova notificação
-            notification.style.animation = 'fadeIn 0.5s';
+                    <div>Acabou de adquirir o pendrive!</div>
+                </div>`;
+            notificationContainer.insertBefore(div, notificationContainer.firstChild);
+            totalNotif++;
+            notificationCounter.textContent = `${totalNotif} compras recentes`;
+            if (notificationContainer.children.length > 5) notificationContainer.removeChild(notificationContainer.lastChild);
         }
-        
-        // Criar notificações iniciais
-        for (let i = 0; i < 5; i++) {
-            setTimeout(() => criarNotificacao(), i * 800);
-        }
-        
-        // Adicionar nova notificação a cada 30 segundos
-        setInterval(criarNotificacao, 30000);
-        
-        // REDIRECIONAMENTO APÓS 40 SEGUNDOS
+        setInterval(criarNotificacao, 8000);
+        criarNotificacao();
+
+        // Redirecionamento
         let secondsLeft = 40;
-        const countdownElement = document.getElementById('countdown');
-        const redirectNotice = document.getElementById('redirectNotice');
-        const cancelRedirectBtn = document.getElementById('cancelRedirect');
-        let redirectInterval;
-        
-        function startRedirectCountdown() {
-            redirectInterval = setInterval(() => {
-                secondsLeft--;
-                countdownElement.textContent = secondsLeft;
-                
-                if (secondsLeft <= 0) {
-                    clearInterval(redirectInterval);
-                    window.location.href = 'https://4br.me/IbyYKon';
-                }
-            }, 1000);
-        }
-        
-        // Iniciar o contador
-        startRedirectCountdown();
-        
-        // Cancelar redirecionamento se o usuário clicar no botão
-        cancelRedirectBtn.addEventListener('click', function() {
-            clearInterval(redirectInterval);
-            redirectNotice.style.display = 'none';
-            localStorage.setItem('redirectCancelled', 'true');
-        });
-        
-        // Cancelar redirecionamento se o usuário interagir com a página
-        document.addEventListener('click', function(e) {
-            if (e.target === cancelRedirectBtn || cancelRedirectBtn.contains(e.target)) {
-                return;
+        const countdown = document.getElementById('countdown');
+        const timer = setInterval(() => {
+            secondsLeft--;
+            countdown.textContent = secondsLeft;
+            if(secondsLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = 'https://4br.me/IbyYKon';
             }
-            
-            if (redirectInterval) {
-                clearInterval(redirectInterval);
-                setTimeout(() => {
-                    redirectNotice.style.opacity = '0';
-                    redirectNotice.style.transition = 'opacity 0.5s';
-                    setTimeout(() => {
-                        redirectNotice.style.display = 'none';
-                    }, 500);
-                }, 3000);
-            }
-        });
-        
-        // Verificar se o usuário já cancelou anteriormente
-        if (localStorage.getItem('redirectCancelled') === 'true') {
-            redirectNotice.style.display = 'none';
-            clearInterval(redirectInterval);
-        }
-        
-        // Atualizar a hora em tempo real nas notificações
-        function atualizarHoras() {
-            const horas = document.querySelectorAll('.notification-time');
-            const agora = new Date();
-            
-            horas.forEach(horaElement => {
-                const texto = horaElement.innerHTML;
-                if (texto.includes('far fa-clock')) {
-                    const partes = texto.split('</i>');
-                    if (partes.length > 1) {
-                        const estadoParte = partes[0].split('</i>')[0] + '</i>';
-                        const horaAtualizada = agora.getHours().toString().padStart(2, '0') + ':' + 
-                                               agora.getMinutes().toString().padStart(2, '0') + ':' + 
-                                               agora.getSeconds().toString().padStart(2, '0');
-                        horaElement.innerHTML = estadoParte + ' ' + horaAtualizada;
-                    }
-                }
-            });
-        }
-        
-        // Atualizar a hora a cada segundo
-        setInterval(atualizarHoras, 1000);
-        
-        // Botão de compra com animação
-        const buyButton = document.getElementById('buyButton');
-        buyButton.addEventListener('mouseover', function() {
-            this.style.transform = 'translateY(-5px) scale(1.05)';
-        });
-        
-        buyButton.addEventListener('mouseout', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-        
-        // Adicionar evento de clique no botão para registrar conversão
-        buyButton.addEventListener('click', function() {
-            console.log('Compra iniciada - pendrive musical 2026');
-        });
-        
-        // Verificar se a imagem do GitHub carregou corretamente
-        window.addEventListener('load', function() {
-            const pendriveImage = document.getElementById('pendriveImage');
-            
-            // Verificar se a imagem carregou
-            pendriveImage.addEventListener('load', function() {
-                console.log('✅ Imagem do pendrive carregada com sucesso do GitHub!');
-            });
-            
-            pendriveImage.addEventListener('error', function() {
-                console.log('❌ Não foi possível carregar a imagem do GitHub. Usando imagem de fallback...');
-            });
-        });
-        
-        // Instruções para configurar a imagem no GitHub
-        console.log('📋 INSTRUÇÕES PARA USAR SUA IMAGEM NO GITHUB:');
-        console.log('1. Faça upload do arquivo "pendrive.jpg" para seu repositório no GitHub');
-        console.log('2. Clique no arquivo no GitHub e depois em "Raw" para obter a URL');
-        console.log('3. Substitua a URL atual na linha 309 pelo link do seu arquivo no GitHub');
-        console.log('4. Formato da URL: https://raw.githubusercontent.com/MUNDO-STORE/PENDRIVEVIRTUAL/blob/main/PENDRIVE.jpg');
-        console.log('');
-        console.log('🔗 URL atual configurada (substitua com sua URL real):');
-        console.log('https://raw.githubusercontent.com/MUNDO-STORE/PENDRIVEVIRTUAL/blob/main/PENDRIVE.jpg');
+        }, 1000);
+
+        document.getElementById('cancelRedirect').onclick = () => {
+            clearInterval(timer);
+            document.getElementById('redirectNotice').style.display = 'none';
+        };
     </script>
 </body>
 </html>
