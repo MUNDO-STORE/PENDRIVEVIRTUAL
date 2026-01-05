@@ -108,7 +108,34 @@
             font-size: 1.3rem;
             color: #ccc;
             max-width: 800px;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
+        }
+        
+        /* Nova frase adicionada */
+        .download-info {
+            font-size: 1.2rem;
+            color: #ffd700;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            animation: pulseHighlight 2s infinite;
+        }
+        
+        @keyframes pulseHighlight {
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+        
+        .download-info i {
+            font-size: 1.4rem;
         }
         
         /* Main content */
@@ -125,18 +152,51 @@
             flex: 1;
             min-width: 300px;
             text-align: center;
+            position: relative;
         }
         
-        .product-image img {
+        /* IMAGEM COM BORDAS ANIMADAS PROFISSIONAL */
+        .image-container {
+            position: relative;
+            display: inline-block;
+            border-radius: 20px;
+            padding: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53, #4ecdc4, #45b7d1);
+            background-size: 400% 400%;
+            animation: gradientBorder 4s ease infinite;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .image-container img {
             max-width: 100%;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s;
-            border: 3px solid #4ecdc4;
+            display: block;
+            position: relative;
+            z-index: 2;
+            border: 5px solid #0f0f1e;
+            height: 350px;
+            object-fit: cover;
         }
         
-        .product-image img:hover {
-            transform: scale(1.03);
+        .pendrive-label {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 107, 107, 0.95);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-weight: bold;
+            transform: rotate(5deg);
+            z-index: 3;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            font-size: 1.1rem;
         }
         
         .product-info {
@@ -164,6 +224,28 @@
             font-size: 1.2rem;
         }
         
+        /* Destaque especial para o item "Sem atualizações!" */
+        .no-updates {
+            color: #ff6b6b;
+            font-weight: bold;
+            position: relative;
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        .no-updates:before {
+            content: "⚠";
+            color: #ffd700;
+            position: absolute;
+            left: -25px;
+            font-size: 1.4rem;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
         /* Botão de compra */
         .buy-button {
             display: inline-block;
@@ -181,12 +263,30 @@
             border: none;
             cursor: pointer;
             width: 100%;
+            position: relative;
+            overflow: hidden;
         }
         
         .buy-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
             background: linear-gradient(45deg, #ff8e53, #ff6b6b);
+        }
+        
+        .buy-button:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+            transition: all 0.5s;
+        }
+        
+        .buy-button:hover:after {
+            left: 130%;
         }
         
         .price {
@@ -236,45 +336,64 @@
             margin-bottom: 10px;
         }
         
-        /* Notificações de compradores */
+        /* NOTIFICAÇÕES FLUTUANTES PROFISSIONAL */
         .notifications-section {
             padding: 50px 0;
+            position: relative;
         }
         
         .notifications-section h2 {
             font-size: 2.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             color: #4ecdc4;
             text-align: center;
         }
         
+        /* Container de notificações flutuante */
         .notification-container {
             max-width: 600px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            max-height: 400px;
+            max-height: 450px;
             overflow-y: auto;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: floatNotification 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatNotification {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
         
         .notification {
             background: rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 12px;
+            padding: 18px;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             animation: fadeIn 0.5s;
+            transition: all 0.3s;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        .notification:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(5px);
         }
         
         .notification img {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             object-fit: cover;
             margin-right: 15px;
+            border: 2px solid #4ecdc4;
         }
         
         .notification-content {
@@ -284,12 +403,20 @@
         .notification-name {
             font-weight: bold;
             color: #ff6b6b;
+            font-size: 1.1rem;
         }
         
         .notification-time {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #aaa;
             margin-top: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .notification-time i {
+            margin-right: 5px;
+            color: #4ecdc4;
         }
         
         /* Depoimentos */
@@ -315,6 +442,12 @@
             border-radius: 15px;
             padding: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         .testimonial-header {
@@ -329,6 +462,7 @@
             border-radius: 50%;
             object-fit: cover;
             margin-right: 15px;
+            border: 2px solid #4ecdc4;
         }
         
         .testimonial-info h4 {
@@ -344,6 +478,7 @@
         .testimonial-text {
             font-style: italic;
             color: #ccc;
+            line-height: 1.5;
         }
         
         /* Footer */
@@ -369,6 +504,21 @@
             .buy-button {
                 font-size: 1.3rem;
                 padding: 15px 30px;
+            }
+            
+            .notification-container {
+                margin: 0 15px;
+            }
+            
+            .download-info {
+                font-size: 1rem;
+                padding: 8px 15px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .image-container img {
+                height: 280px;
             }
         }
         
@@ -413,24 +563,6 @@
             cursor: pointer;
         }
         
-        /* Estilos para as imagens de pendrive */
-        .pendrive-img-container {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .pendrive-label {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 107, 107, 0.9);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            transform: rotate(5deg);
-        }
-        
         /* Estilo especial para a pasta "E MUITO MAIS!" */
         .genre-more {
             background: rgba(255, 107, 107, 0.1);
@@ -439,43 +571,54 @@
         
         .genre-more i {
             color: #ffd700;
+            animation: pulseIcon 2s infinite;
+        }
+        
+        @keyframes pulseIcon {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         .genre-more h3 {
             color: #ffd700;
         }
         
-        /* Estilo profissional para notificações */
-        .notification-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #ff6b6b;
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        
+        /* Estilo para contador de notificações */
         .notification-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
         
         .notification-counter {
-            background: #4ecdc4;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
             color: #0f0f1e;
-            padding: 5px 10px;
+            padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: bold;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+        
+        /* Barra de rolagem personalizada */
+        .notification-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .notification-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .notification-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            border-radius: 10px;
+        }
+        
+        .notification-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #ff8e53, #ff6b6b);
         }
     </style>
 </head>
@@ -492,25 +635,33 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <!-- TEXTO ATUALIZADO: ATUALIZE SEU PENDRIVE 2026 -->
             <h1>ATUALIZE SEU <span class="highlight">PENDRIVE 2026</span></h1>
             <p class="subtitle">Mais de 25 mil músicas MP3 sem vinhetas | Mais de 33 ritmos diferentes | Na compra ganhe videoclipes</p>
+            
+            <!-- Nova frase adicionada -->
+            <div class="download-info">
+                <i class="fas fa-download"></i>
+                <span><strong>BAIXE NO SEU COMPUTADOR OU CELULAR! (RECOMENDAMOS PELO PC)</strong></span>
+            </div>
+            
             <div class="price">R$ 9,99</div>
         </header>
         
         <!-- Conteúdo principal -->
         <section class="main-content">
             <div class="product-image">
-                <div class="pendrive-img-container">
-                    <!-- IMAGEM DO PENDRIVE - LOCAL (você substituirá pelo seu arquivo) -->
-                    <!-- Para usar sua imagem, coloque o arquivo na mesma pasta e altere o src para "pendrive.jpg" ou o nome do seu arquivo -->
-                    <img src="pendrive.jpg" alt="Pendrive com músicas 2026" id="pendriveImage">
+                <!-- Container com bordas animadas -->
+                <div class="image-container">
+                    <!-- IMAGEM HOSPEDADA NO GITHUB - pendrive.jpg -->
+                    <img src="https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPOSITORY/main/pendrive.jpg" 
+                         alt="Pendrive com músicas 2026" 
+                         id="pendriveImage"
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581327378411-1e3d8dcd4f8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'">
                     <div class="pendrive-label">25.000 MÚSICAS</div>
                 </div>
             </div>
             
             <div class="product-info">
-                <!-- TEXTO ATUALIZADO: Leve a música para onde você for! com descrição adicional -->
                 <h2>Leve a música para onde você for!</h2>
                 <p style="color: #4ecdc4; margin-bottom: 20px; font-size: 1.1rem;">
                     <i class="fas fa-music"></i> <strong>MÚSICAS ATUALIZADAS 2026</strong> - As mais tocadas do momento!
@@ -524,7 +675,7 @@
                     <li><strong>Organização por pastas</strong> por ritmos musicais</li>
                     <li><strong>Compatível com todos os dispositivos</strong></li>
                     <li><strong>Entrega imediata</strong> após a confirmação</li>
-                    <li><strong>Músicas atualizadas semanalmente</strong></li>
+                    <li class="no-updates"><strong>Sem atualizações!</strong> - Conteúdo completo e definitivo</li>
                 </ul>
                 
                 <a href="https://4br.me/IbyYKon" class="buy-button" id="buyButton">
@@ -578,13 +729,12 @@
             </div>
         </section>
         
-        <!-- Notificações de compradores -->
+        <!-- NOTIFICAÇÕES FLUTUANTES PROFISSIONAL -->
         <section class="notifications-section">
             <div class="notification-header">
                 <h2>NOTIFICAÇÕES DE COMPRAS</h2>
                 <div class="notification-counter" id="notificationCounter">5 compras recentes</div>
             </div>
-            <p class="subtitle">Pessoas estão adquirindo agora mesmo! Atualizações a cada 30 segundos</p>
             <div class="notification-container" id="notificationContainer">
                 <!-- Notificações serão inseridas aqui via JavaScript -->
             </div>
@@ -632,7 +782,6 @@
         
         <!-- Footer -->
         <footer>
-            <!-- ATUALIZADO: 2026 -->
             <p>© 2026 - Atualize seu Pendrive. Todos os direitos reservados.</p>
         </footer>
     </div>
@@ -655,7 +804,7 @@
         // Notificações de compradores em tempo real
         const notificationContainer = document.getElementById('notificationContainer');
         const notificationCounter = document.getElementById('notificationCounter');
-        const estados = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Rio Grande do Sul', 'Paraná', 'Santa Catarina', 'Bahia', 'Pernambuco', 'Ceará', 'Distrito Federal'];
+        const estados = ['SP', 'RJ', 'MG', 'RS', 'PR', 'SC', 'BA', 'PE', 'CE', 'DF'];
         const nomesMasculinos = ['Carlos', 'João', 'Pedro', 'Lucas', 'Ricardo', 'Fernando', 'Roberto', 'Gustavo', 'Eduardo', 'Marcos'];
         const nomesFemininos = ['Ana', 'Maria', 'Juliana', 'Patrícia', 'Camila', 'Fernanda', 'Amanda', 'Beatriz', 'Carolina', 'Larissa'];
         
@@ -748,7 +897,9 @@
                 <div class="notification-content">
                     <div class="notification-name">${nome}</div>
                     <div>Acabou de adquirir o pendrive musical 2026!</div>
-                    <div class="notification-time">${estado} • ${horaFormatada}</div>
+                    <div class="notification-time">
+                        <i class="fas fa-map-marker-alt"></i> ${estado} • <i class="far fa-clock"></i> ${horaFormatada}
+                    </div>
                 </div>
             `;
             
@@ -767,14 +918,17 @@
             if (notificationContainer.children.length > 8) {
                 notificationContainer.removeChild(notificationContainer.lastChild);
             }
+            
+            // Adicionar efeito de nova notificação
+            notification.style.animation = 'fadeIn 0.5s';
         }
         
         // Criar notificações iniciais
         for (let i = 0; i < 5; i++) {
-            setTimeout(() => criarNotificacao(), i * 1000);
+            setTimeout(() => criarNotificacao(), i * 800);
         }
         
-        // ATUALIZADO: Adicionar nova notificação a cada 30 segundos (profissional)
+        // Adicionar nova notificação a cada 30 segundos
         setInterval(criarNotificacao, 30000);
         
         // REDIRECIONAMENTO APÓS 40 SEGUNDOS
@@ -803,21 +957,17 @@
         cancelRedirectBtn.addEventListener('click', function() {
             clearInterval(redirectInterval);
             redirectNotice.style.display = 'none';
-            // Salvar no localStorage que o usuário cancelou
             localStorage.setItem('redirectCancelled', 'true');
         });
         
-        // Cancelar redirecionamento se o usuário interagir com a página (clicar em qualquer lugar)
+        // Cancelar redirecionamento se o usuário interagir com a página
         document.addEventListener('click', function(e) {
-            // Não cancelar se clicar no próprio botão de cancelar (já tratado acima)
             if (e.target === cancelRedirectBtn || cancelRedirectBtn.contains(e.target)) {
                 return;
             }
             
-            // Verificar se o redirecionamento já foi cancelado
             if (redirectInterval) {
                 clearInterval(redirectInterval);
-                // Esconder a notificação após 3 segundos
                 setTimeout(() => {
                     redirectNotice.style.opacity = '0';
                     redirectNotice.style.transition = 'opacity 0.5s';
@@ -840,14 +990,16 @@
             const agora = new Date();
             
             horas.forEach(horaElement => {
-                const texto = horaElement.textContent;
-                const partes = texto.split(' • ');
-                if (partes.length === 2) {
-                    const estado = partes[0];
-                    const horaAtualizada = agora.getHours().toString().padStart(2, '0') + ':' + 
-                                           agora.getMinutes().toString().padStart(2, '0') + ':' + 
-                                           agora.getSeconds().toString().padStart(2, '0');
-                    horaElement.textContent = estado + ' • ' + horaAtualizada;
+                const texto = horaElement.innerHTML;
+                if (texto.includes('far fa-clock')) {
+                    const partes = texto.split('</i>');
+                    if (partes.length > 1) {
+                        const estadoParte = partes[0].split('</i>')[0] + '</i>';
+                        const horaAtualizada = agora.getHours().toString().padStart(2, '0') + ':' + 
+                                               agora.getMinutes().toString().padStart(2, '0') + ':' + 
+                                               agora.getSeconds().toString().padStart(2, '0');
+                        horaElement.innerHTML = estadoParte + ' ' + horaAtualizada;
+                    }
                 }
             });
         }
@@ -867,21 +1019,32 @@
         
         // Adicionar evento de clique no botão para registrar conversão
         buyButton.addEventListener('click', function() {
-            // Aqui você pode adicionar código de rastreamento (Google Analytics, Facebook Pixel, etc.)
             console.log('Compra iniciada - pendrive musical 2026');
         });
         
-        // Instruções para substituir a imagem do pendrive
-        console.log('Para usar sua própria imagem do pendrive:');
-        console.log('1. Coloque o arquivo de imagem na mesma pasta do HTML');
-        console.log('2. Altere o atributo "src" da imagem com id="pendriveImage" para o nome do seu arquivo');
-        console.log('3. Exemplo: se seu arquivo se chama "pendrive.jpg", altere para: src="pendrive.jpg"');
+        // Verificar se a imagem do GitHub carregou corretamente
+        window.addEventListener('load', function() {
+            const pendriveImage = document.getElementById('pendriveImage');
+            
+            // Verificar se a imagem carregou
+            pendriveImage.addEventListener('load', function() {
+                console.log('✅ Imagem do pendrive carregada com sucesso do GitHub!');
+            });
+            
+            pendriveImage.addEventListener('error', function() {
+                console.log('❌ Não foi possível carregar a imagem do GitHub. Usando imagem de fallback...');
+            });
+        });
         
-        // Código para facilitar a troca da imagem
-        const pendriveImage = document.getElementById('pendriveImage');
-        
-        // Se você quiser testar com uma imagem local, descomente a linha abaixo e ajuste o nome do arquivo
-        // pendriveImage.src = "pendrive.jpg"; // Substitua "pendrive.jpg" pelo nome do seu arquivo
+        // Instruções para configurar a imagem no GitHub
+        console.log('📋 INSTRUÇÕES PARA USAR SUA IMAGEM NO GITHUB:');
+        console.log('1. Faça upload do arquivo "pendrive.jpg" para seu repositório no GitHub');
+        console.log('2. Clique no arquivo no GitHub e depois em "Raw" para obter a URL');
+        console.log('3. Substitua a URL atual na linha 309 pelo link do seu arquivo no GitHub');
+        console.log('4. Formato da URL: https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPOSITORIO/main/pendrive.jpg');
+        console.log('');
+        console.log('🔗 URL atual configurada (substitua com sua URL real):');
+        console.log('https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPOSITORY/main/pendrive.jpg');
     </script>
 </body>
 </html>
