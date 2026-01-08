@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualize seu Pendrive 2026 - Mais de 25 mil Músicas MP3</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '25652670291043537');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=25652670291043537&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
     <style>
         * {
             margin: 0;
@@ -137,6 +156,14 @@
             font-size: 1.4rem;
         }
         
+        .price {
+            font-size: 2.5rem;
+            color: #ffd700;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
         /* Main content */
         .main-content {
             display: flex;
@@ -181,6 +208,7 @@
             height: 350px;
             width: 350px;
             object-fit: cover;
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
         }
         
         .pendrive-label {
@@ -284,14 +312,6 @@
         
         .buy-button:hover:after {
             left: 130%;
-        }
-        
-        .price {
-            font-size: 2.5rem;
-            color: #ffd700;
-            font-weight: bold;
-            margin: 20px 0;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
         
         /* Ritmos musicais */
@@ -487,7 +507,7 @@
             border-radius: 50px;
             text-decoration: none;
             box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
-            z-index: 999;
+            z-index: 998; /* Reduzido para 998 */
             display: flex;
             align-items: center;
             gap: 10px;
@@ -516,36 +536,26 @@
             font-size: 0.9rem;
         }
         
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .main-content { flex-direction: column; }
-            .image-container img { height: 280px; width: 280px; }
-            .testimonials-grid { grid-template-columns: 1fr; }
-            .floating-button {
-                bottom: 20px;
-                right: 20px;
-                font-size: 1rem;
-                padding: 15px 20px;
-            }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
+        /* NOTIFICAÇÃO DE REDIRECIONAMENTO - AGORA NO LADO ESQUERDO */
         .redirect-notice {
             position: fixed;
             bottom: 20px;
-            right: 20px;
-            background: rgba(255, 107, 107, 0.9);
+            left: 20px; /* Alterado de right para left */
+            background: rgba(255, 107, 107, 0.95);
             color: white;
             padding: 15px 20px;
             border-radius: 10px;
-            z-index: 1000;
+            z-index: 999;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             animation: pulse 2s infinite;
-            max-width: 300px;
+            max-width: 320px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        
+        .redirect-notice:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
         
         @keyframes pulse {
@@ -567,6 +577,11 @@
             color: #ffd700;
             text-decoration: underline;
             cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .cancel-redirect:hover {
+            color: #ffffff;
         }
         
         .genre-more {
@@ -577,6 +592,12 @@
         .genre-more i {
             color: #ffd700;
             animation: pulseIcon 2s infinite;
+        }
+        
+        @keyframes pulseIcon {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         .notification-header {
@@ -603,6 +624,34 @@
             background: linear-gradient(45deg, #ff6b6b, #ff8e53);
             border-radius: 10px;
         }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .main-content { flex-direction: column; }
+            .image-container img { height: 280px; width: 280px; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .floating-button {
+                bottom: 20px;
+                right: 20px;
+                font-size: 1rem;
+                padding: 15px 20px;
+                z-index: 998;
+            }
+            
+            /* Ajustes para mobile - notificação no lado esquerdo */
+            .redirect-notice {
+                bottom: 80px; /* Ajustado para não cobrir o botão flutuante em mobile */
+                left: 10px;
+                right: 10px;
+                max-width: none;
+                text-align: center;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -614,9 +663,10 @@
         PACK PROFISSIONAL R$50,00<br>COMPRAR!
     </a>
     
+    <!-- Notificação de redirecionamento - AGORA NO LADO ESQUERDO -->
     <div class="redirect-notice" id="redirectNotice">
-        <div>OFERTA ESPECIAL! Redirecionando em <span class="countdown" id="countdown">40</span> segundos...</div>
-        <div class="cancel-redirect" id="cancelRedirect">Clique aqui para cancelar o redirecionamento</div>
+        <div><i class="fas fa-bolt"></i> <strong>OFERTA ESPECIAL!</strong> Redirecionando em <span class="countdown" id="countdown">60</span> segundos...</div>
+        <div class="cancel-redirect" id="cancelRedirect"><i class="fas fa-times-circle"></i> Clique aqui para cancelar o redirecionamento</div>
     </div>
     
     <div class="container">
@@ -676,6 +726,10 @@
                 <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Rock</h3></div>
                 <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Samba</h3></div>
                 <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Axé</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Eletrônica</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Pop</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Rap/Hip-Hop</h3></div>
+                <div class="genre-folder"><i class="fas fa-folder-open"></i><h3>Reggae</h3></div>
                 <div class="genre-folder genre-more">
                     <i class="fas fa-plus-circle"></i>
                     <h3>E MUITO MAIS!</h3>
@@ -689,7 +743,9 @@
                 <h2>NOTIFICAÇÕES DE COMPRAS</h2>
                 <div class="notification-counter" id="notificationCounter">5 compras recentes</div>
             </div>
-            <div class="notification-container" id="notificationContainer"></div>
+            <div class="notification-container" id="notificationContainer">
+                <!-- Notificações serão geradas aqui via JavaScript -->
+            </div>
         </section>
         
         <!-- SEÇÃO DE DEPOIMENTOS ADICIONADA -->
@@ -702,10 +758,25 @@
         
         <footer>
             <p>© 2026 - Atualize seu Pendrive. Todos os direitos reservados.</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">Este site é um exemplo de página de vendas. Certifique-se de ter os direitos autorais necessários para qualquer conteúdo musical vendido.</p>
         </footer>
     </div>
     
     <script>
+        // Inicializar o Pixel do Facebook
+        function initFacebookPixel() {
+            // O Pixel já foi inicializado no código no <head>
+            console.log('Facebook Pixel inicializado: 25652670291043537');
+            
+            // Rastrear eventos adicionais
+            fbq('track', 'ViewContent', {
+                content_name: 'Pendrive 25.000 Músicas 2026',
+                content_category: 'Música Digital',
+                value: 9.99,
+                currency: 'BRL'
+            });
+        }
+        
         // Lógica de Notas Musicais
         const backgroundAnimation = document.getElementById('backgroundAnimation');
         const notes = ['♩', '♪', '♫', '♬'];
@@ -721,7 +792,7 @@
         // Notificações Fictícias
         const notificationContainer = document.getElementById('notificationContainer');
         const notificationCounter = document.getElementById('notificationCounter');
-        const nomes = ['Carlos', 'Ana', 'Pedro', 'Juliana', 'Ricardo', 'Beatriz'];
+        const nomes = ['Carlos', 'Ana', 'Pedro', 'Juliana', 'Ricardo', 'Beatriz', 'Fernando', 'Mariana', 'Roberto', 'Camila'];
         let totalNotif = 0;
 
         function criarNotificacao() {
@@ -730,34 +801,48 @@
             const div = document.createElement('div');
             div.className = 'notification';
             div.innerHTML = `
-                <img src="${foto}">
+                <img src="${foto}" alt="${nome}">
                 <div class="notification-content">
                     <div class="notification-name">${nome}</div>
                     <div>Acabou de adquirir o pendrive!</div>
+                    <div class="notification-time">
+                        <i class="fas fa-clock"></i> Há ${Math.floor(Math.random() * 5) + 1} minutos
+                    </div>
                 </div>`;
             notificationContainer.insertBefore(div, notificationContainer.firstChild);
             totalNotif++;
             notificationCounter.textContent = `${totalNotif} compras recentes`;
             if (notificationContainer.children.length > 5) notificationContainer.removeChild(notificationContainer.lastChild);
         }
+        
+        // Criar notificações iniciais
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => criarNotificacao(), i * 1000);
+        }
+        
+        // Continuar criando notificações a cada 8 segundos
         setInterval(criarNotificacao, 8000);
-        criarNotificacao();
 
         // Redirecionamento
-        let secondsLeft = 40;
+        let secondsLeft = 60;
         const countdown = document.getElementById('countdown');
+        const redirectNotice = document.getElementById('redirectNotice');
         const timer = setInterval(() => {
             secondsLeft--;
             countdown.textContent = secondsLeft;
             if(secondsLeft <= 0) {
                 clearInterval(timer);
+                // Rastrear o redirecionamento automático no Pixel
+                fbq('track', 'Lead');
                 window.location.href = 'https://4br.me/IbyYKon';
             }
         }, 1000);
 
         document.getElementById('cancelRedirect').onclick = () => {
             clearInterval(timer);
-            document.getElementById('redirectNotice').style.display = 'none';
+            redirectNotice.style.display = 'none';
+            // Notificar o usuário
+            alert('Redirecionamento cancelado! Continue navegando para aproveitar a oferta.');
         };
 
         // GERADOR DE DEPOIMENTOS
@@ -875,8 +960,44 @@
             }
         }
         
-        // Chamar a função para gerar depoimentos quando a página carregar
-        document.addEventListener('DOMContentLoaded', generateTestimonials);
+        // Função para rastrear cliques nos botões de compra
+        function trackPurchaseClicks() {
+            const buyButton = document.getElementById('buyButton');
+            const floatingButton = document.querySelector('.floating-button');
+            
+            buyButton.addEventListener('click', function(e) {
+                // Rastrear clique no botão principal
+                fbq('track', 'InitiateCheckout', {
+                    value: 9.99,
+                    currency: 'BRL',
+                    content_name: 'Pendrive 25.000 Músicas 2026'
+                });
+                
+                // Adicionar efeito visual
+                this.style.transform = 'scale(0.95)';
+                this.style.backgroundColor = '#4ecdc4';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    this.style.backgroundColor = '';
+                }, 200);
+            });
+            
+            floatingButton.addEventListener('click', function(e) {
+                // Rastrear clique no botão flutuante
+                fbq('track', 'InitiateCheckout', {
+                    value: 50.00,
+                    currency: 'BRL',
+                    content_name: 'Pack Profissional Pendrive'
+                });
+            });
+        }
+        
+        // Chamar as funções quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            initFacebookPixel();
+            generateTestimonials();
+            trackPurchaseClicks();
+        });
     </script>
 </body>
 </html>
