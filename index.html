@@ -507,55 +507,6 @@
             100% { box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4); }
         }
         
-        /* NOTIFICAÇÃO DE REDIRECIONAMENTO (AGORA NA ESQUERDA) */
-        .redirect-notice {
-            position: fixed;
-            bottom: 20px;
-            left: 20px; /* Alterado de right para left */
-            background: rgba(255, 107, 107, 0.95);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            z-index: 1000;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: pulse 2s infinite;
-            max-width: 300px;
-            border-left: 5px solid #ffd700;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
-        }
-        
-        .countdown {
-            font-weight: bold;
-            color: #ffd700;
-            font-size: 1.2rem;
-            display: inline-block;
-            min-width: 30px;
-            text-align: center;
-        }
-        
-        .cancel-redirect {
-            display: block;
-            margin-top: 8px;
-            font-size: 0.9rem;
-            color: #ffd700;
-            text-decoration: underline;
-            cursor: pointer;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .cancel-redirect:hover {
-            background: rgba(0, 0, 0, 0.4);
-        }
-        
         footer {
             text-align: center;
             padding: 30px 0;
@@ -576,17 +527,46 @@
                 font-size: 1rem;
                 padding: 15px 20px;
             }
-            .redirect-notice {
-                left: 10px;
-                right: 10px;
-                max-width: calc(100% - 20px);
-                bottom: 80px; /* Ajuste para não sobrepor o botão flutuante */
-            }
         }
         
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .redirect-notice {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 107, 107, 0.9);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+            max-width: 300px;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+        }
+        
+        .countdown {
+            font-weight: bold;
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+        
+        .cancel-redirect {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #ffd700;
+            text-decoration: underline;
+            cursor: pointer;
         }
         
         .genre-more {
@@ -623,32 +603,21 @@
             background: linear-gradient(45deg, #ff6b6b, #ff8e53);
             border-radius: 10px;
         }
-        
-        /* Animação adicional para chamar atenção na esquerda */
-        @keyframes slideInLeft {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        .redirect-notice {
-            animation: slideInLeft 0.5s ease-out, pulse 2s infinite 0.5s;
-        }
     </style>
 </head>
 <body>
     <div class="background-animation" id="backgroundAnimation"></div>
-    
-    <!-- Notificação de redirecionamento (AGORA NA ESQUERDA) -->
-    <div class="redirect-notice" id="redirectNotice">
-        <div><i class="fas fa-exclamation-circle"></i> OFERTA ESPECIAL! Redirecionando em <span class="countdown" id="countdown">40</span> segundos...</div>
-        <div class="cancel-redirect" id="cancelRedirect"><i class="fas fa-times"></i> Clique aqui para cancelar</div>
-    </div>
     
     <!-- Botão flutuante -->
     <a href="https://4br.me/54Wms" class="floating-button" target="_blank">
         <i class="fas fa-crown"></i>
         PACK PROFISSIONAL R$50,00<br>COMPRAR!
     </a>
+    
+    <div class="redirect-notice" id="redirectNotice">
+        <div>OFERTA ESPECIAL! Redirecionando em <span class="countdown" id="countdown">40</span> segundos...</div>
+        <div class="cancel-redirect" id="cancelRedirect">Clique aqui para cancelar o redirecionamento</div>
+    </div>
     
     <div class="container">
         <header>
@@ -908,20 +877,6 @@
         
         // Chamar a função para gerar depoimentos quando a página carregar
         document.addEventListener('DOMContentLoaded', generateTestimonials);
-        
-        // Adicionar efeito de contagem regressiva mais visível
-        function updateCountdownDisplay() {
-            const countdownElement = document.getElementById('countdown');
-            if (secondsLeft <= 10) {
-                countdownElement.style.color = '#ff6b6b';
-                countdownElement.style.animation = 'pulse 1s infinite';
-            } else if (secondsLeft <= 20) {
-                countdownElement.style.color = '#ff8e53';
-            }
-        }
-        
-        // Atualizar a cada segundo
-        setInterval(updateCountdownDisplay, 1000);
     </script>
 </body>
 </html>
